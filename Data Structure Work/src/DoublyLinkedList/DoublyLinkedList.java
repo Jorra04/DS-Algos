@@ -49,7 +49,7 @@ public class DoublyLinkedList {
 	 * Section 2. Methods responsible for removing from the LinkedList
 	 * contains removeFirst and removeLast.
 	 * Runtime of removeFirst() is o(1)
-	 * Runtime of removeLast() is o(n)
+	 * Runtime of removeLast() is o(1)
 	 */
 	
 	public void removeFirst() throws EmptyListException {
@@ -60,7 +60,18 @@ public class DoublyLinkedList {
 		else {
 			head = head.next;
 			head.prev = null;
+			this.size --;	
 		}
+	}
+	
+	public void removeLast() throws EmptyListException{
+		if(this.size == 0) {
+			throw new EmptyListException("The List is Empty and removeFirst Cannot"
+					+ " be used");
+		}
+		tail = tail.prev;
+		tail.next = null;
+		this.size --;
 	}
 	
 	
@@ -100,7 +111,5 @@ public class DoublyLinkedList {
 			curr = curr.next;
 		}
 	}
-	
-	
 	
 }
