@@ -13,6 +13,8 @@ public class LinkedList {
 	/*
 	 * Section 1. Methods responsible for adding to the LinkedList
 	 * contains push and append.
+	 * Runtime of push(Object item) is o(1)
+	 * Runtime of append(Object item) is o(1)
 	 */
 	public void push(Object item) {
 
@@ -37,6 +39,8 @@ public class LinkedList {
 	/*
 	 * Section 2. Methods responsible for removing from the LinkedList
 	 * contains removeFirst and removeLast.
+	 * Runtime of removeFirst() is o(1)
+	 * Runtime of removeLast() is o(n)
 	 */
 	
 	public void removeFirst() {
@@ -58,6 +62,7 @@ public class LinkedList {
 	/*
 	 * Section 3. Methods in this section are responsible for getting data
 	 * about the data structure.
+	 * All functions in this section are o(1)
 	 */
 	public int size() {
 		return this.size;
@@ -78,6 +83,7 @@ public class LinkedList {
 	/*
 	 * Section 4. This section is responsible for keeping tabs on the DS and ensuring 
 	 * it is behaving to our expectations.
+	 * the PrintList() function has a runtime of o(n)  
 	 */
 
 	public void printList() {
