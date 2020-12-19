@@ -51,6 +51,7 @@ public class LinkedList {
 		}
 		tail = curr;
 		tail.next = null;
+		this.size --;
 	}
 	
 
