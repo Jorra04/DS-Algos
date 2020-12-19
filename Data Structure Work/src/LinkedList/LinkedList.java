@@ -12,18 +12,38 @@ public class LinkedList {
 	}
 	
 	public void push(Object item) {
+		
 		Node node = new Node(item);
 		node.next = head;
 		head = node;
+		if(this.size == 0) tail = head;
+		this.size ++;
 		
-		
-		
+	}
+	
+	public void append(Object item) {
+		Node node = new Node(item);
+		this.tail.next = node;
+		this.tail = node;
+		this.size ++;
+	}
+	
+	
+	public int size() {
+		return this.size;
 	}
 	
 	public void printList() {
 		Node curr = this.head;
 		while(curr != null) {
-			System.out.println(curr.value + ", ");
+			if(curr == tail) {
+				System.out.print(curr.value);
+			}
+			else {
+				System.out.print(curr.value + ", ");
+			}
+			
+			curr = curr.next;
 		}
 	}
 	
