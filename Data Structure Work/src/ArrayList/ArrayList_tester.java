@@ -148,5 +148,6 @@ class ArrayList_tester {
 		assertEquals(false, myList.contains(5));
 		assertEquals(1, myList.size());
 	}
+	
 
 }

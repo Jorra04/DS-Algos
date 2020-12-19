@@ -71,6 +71,8 @@ public class ArrayList<E> {
 		}
 	}
 	
+	
+	
 	public boolean contains(E item) {
 		for(int i = 0; i < this.size; i ++) {
 			if(this.list[i].equals(item)) return true;
