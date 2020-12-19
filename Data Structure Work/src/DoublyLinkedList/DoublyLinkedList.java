@@ -52,6 +52,17 @@ public class DoublyLinkedList {
 	 * Runtime of removeLast() is o(n)
 	 */
 	
+	public void removeFirst() throws EmptyListException {
+		if(this.size == 0) {
+			throw new EmptyListException("The List is Empty and removeFirst Cannot"
+					+ " be used");
+		}
+		else {
+			head = head.next;
+			head.prev = null;
+		}
+	}
+	
 	
 	/*
 	 * Section 3. Methods in this section are responsible for getting data
