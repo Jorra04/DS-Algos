@@ -1,38 +1,46 @@
-package LinkedList;
+package DoublyLinkedList;
 
-public class LinkedList {
-	private Node head;
-	private Node tail;
+public class DoublyLinkedList {
+	private DNode head;
+	private DNode tail;
 	private int size;
-
-	LinkedList(){
-		this.head = null;
+	
+	public DoublyLinkedList() {
+		this.head = new DNode();
 		this.tail = this.head;
 		this.size = 0;
 	}
+	
 	/*
 	 * Section 1. Methods responsible for adding to the LinkedList
 	 * contains push and append.
 	 * Runtime of push(Object item) is o(1)
 	 * Runtime of append(Object item) is o(1)
 	 */
+	
 	public void push(Object item) {
-
-		Node node = new Node(item);
-		node.next = head;
-		head = node;
-		if(this.size == 0) tail = head;
+		DNode node = new DNode(item);
+		if(this.size == 0) {
+			this.head = this.tail = node;
+		}
+		else{
+			node.prev = null;
+			node.next = this.head;
+			this.head.prev = node;
+			this.head = node;	
+		}
 		this.size ++;
 	}
 	
 	public void append(Object item) {
-		Node node = new Node(item);
+		DNode node = new DNode(item);
 		if(this.size == 0) {
 			this.head = this.tail = node;
 		}
 		else {
-			this.tail.next = node;
-			this.tail = node;
+			tail.next = node;
+			node.prev = tail;
+			tail = node;
 		}
 		this.size ++;
 	}
@@ -44,34 +52,12 @@ public class LinkedList {
 	 * Runtime of removeLast() is o(n)
 	 */
 	
-	public void removeFirst() {
-		this.head = this.head.next;
-		this.size --;
-	}
 	
-	public void removeLast() {
-		Node curr = head;
-		while(curr.next.next != null) {
-			curr = curr.next;
-		}
-		tail = curr;
-		tail.next = null;
-		this.size --;
-	}
-	
-
 	/*
 	 * Section 3. Methods in this section are responsible for getting data
 	 * about the data structure.
 	 * All functions in this section are o(1)
 	 */
-	public int size() {
-		return this.size;
-	}
-	
-	public boolean isEmpty() {
-		return this.size == 0;
-	}
 	
 	public Object first() {
 		return this.head.value;
@@ -81,25 +67,29 @@ public class LinkedList {
 		return this.tail.value;
 	}
 	
+	public int size() {
+		return this.size;
+	}
+	
 	/*
 	 * Section 4. This section is responsible for keeping tabs on the DS and ensuring 
 	 * it is behaving to our expectations.
 	 * the PrintList() function has a runtime of o(n)  
 	 */
-
+	
 	public void printList() {
-		Node curr = this.head;
+		DNode curr = head;
 		while(curr != null) {
 			if(curr == tail) {
 				System.out.print(curr.value);
 			}
 			else {
-				System.out.print(curr.value + ", ");
+				System.out.print(curr.value +", ");
 			}
-
 			curr = curr.next;
 		}
 	}
-
-
+	
+	
+	
 }
