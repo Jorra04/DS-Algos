@@ -50,6 +50,12 @@ public class LinkedList {
 	}
 	
 	public void removeLast() {
+		if(this.head == null) return;
+		if(this.head.next == null) {
+			this.head = this.tail = null;
+			this.size--;
+			return;
+		}
 		Node curr = head;
 		while(curr.next.next != null) {
 			curr = curr.next;

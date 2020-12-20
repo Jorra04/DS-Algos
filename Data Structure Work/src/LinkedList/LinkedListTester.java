@@ -111,5 +111,52 @@ class LinkedListTester {
 	
 		assertEquals(3, list.last());
 	}
+	
+	@Test
+	void removeLast_test02() {
+		LinkedList list = new LinkedList();
+		
+		list.push(4);
+		
+		
+		/*
+		 * List looks like..
+		 * [5]->[4]->[3]->[2]-> null
+		 */
+		
+		list.removeLast();
+
+		
+		/*
+		 * List looks like..
+		 * [5]->[4]->[3]-> null
+		 */
+	
+		assertEquals(true, list.isEmpty());
+	}
+	
+	@Test
+	void removeLast_test03() {
+		LinkedList list = new LinkedList();
+		
+		list.push(4);
+		list.push(5);
+		
+		
+		/*
+		 * List looks like..
+		 * [5]->[4]->[3]->[2]-> null
+		 */
+		
+		list.removeLast();
+
+		
+		/*
+		 * List looks like..
+		 * [5]->[4]->[3]-> null
+		 */
+	
+		assertEquals(5, list.last());
+	}
 
 }
